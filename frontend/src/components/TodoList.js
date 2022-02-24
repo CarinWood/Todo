@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import MyApiService from '../api/services/MyApiService'
 import './todoList.css'
+import { MdClear } from "react-icons/md";
 
 const TodoList = () => {
 
@@ -8,16 +9,6 @@ const TodoList = () => {
     const [name, setName] = useState('')
     const [task, setTask] = useState('')
 
-    function getData()  {
-       MyApiService.todoArray()
-        .then(response => {
-           console.log(response.data)
-           setData(response.data)
-         
-           
-        })
-        .catch(error => console.log(error))
-    }
 
     function addTask() {
       MyApiService.createTask(task, name)
@@ -57,12 +48,16 @@ const TodoList = () => {
         </div>
        
         <p>{data.map(obj => (
-          <>
-          <p>{obj.task}</p>
-          <p>{obj.name}</p>
-          <button onClick={()=>deleteTask(obj.id)}>DELETE</button>
+          <div className='card-wrapper'>
+          <p className='task'>{obj.task}</p>
+          <p className='name'>{obj.name}</p>
+          <button 
+           
+              onClick={()=>deleteTask(obj.id)}>
+                <MdClear className="close"/>
+          </button>
         
-          </>
+          </div>
         ))}</p>
       
         
