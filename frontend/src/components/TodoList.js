@@ -1,5 +1,4 @@
 import {useState} from 'react'
-import Card from './Card'
 import MyApiService from '../api/services/MyApiService'
 import './todoList.css'
 
