@@ -1,0 +1,39 @@
+.todo-container {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+}
+
+.input-wrapper {
+    margin:  30px 0px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+
+.input-field {
+    padding: 5px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+
+.add-btn {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #006666;
+    cursor: pointer;
+}
+
+.add-btn:active {
+    transform: translateY(2px)
+}
