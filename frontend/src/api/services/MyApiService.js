@@ -4,8 +4,8 @@ const todoArray = () => {
     return http.get('/todo')
 }
 
-const deleteTask = (task) => {
-    return http.delete(`/todo/${task}`)
+const deleteTask = (id) => {
+    return http.delete(`/todo/${id}`)
 }
 
 const createTask = (task, name) => {

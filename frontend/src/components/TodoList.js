@@ -30,6 +30,20 @@ const TodoList = () => {
       setName('')
     }
 
+    function deleteTask(theId) {
+      console.log(theId)
+       MyApiService.deleteTask(theId)
+      .then(response => {
+        setData(response.data)
+      
+         console.log(response.data)
+         
+       
+      })
+      .catch(error => console.log(error))
+    
+    }
+
   return (
     <div className="todo-container">
            <h1 className="headline">Todo List</h1>
@@ -40,12 +54,15 @@ const TodoList = () => {
             <input className='input-field' value={name} type="text" onChange={e => setName(e.target.value)} />
            
             <button className="add-btn" onClick={addTask}>Add</button>
-            <button onClick={getData}>API Call</button>
+         
         </div>
        
         <p>{data.map(obj => (
           <>
-          <Card task={obj.task} name={obj.name} id={obj.id} getData={getData}/>
+          <p>{obj.task}</p>
+          <p>{obj.name}</p>
+          <button onClick={()=>deleteTask(obj.id)}>DELETE</button>
+        
           </>
         ))}</p>
       

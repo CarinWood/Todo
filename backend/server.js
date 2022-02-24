@@ -20,6 +20,18 @@ const todoArray = [
         name: 'Carin',
         done: false,
         id: 0,
+    },
+    {
+        task: 'Shop',
+        name: 'Stefan',
+        done: false,
+        id: 1,
+    },
+    {
+        task: 'Play games',
+        name: 'Crille',
+        done: false,
+        id: 3,
     }
 ]
 
@@ -32,16 +44,17 @@ app.get('/todo',(req, res) => {
 })
 
 const deleteTask = (id) => {
+   
     for (let i = 0; i < todoArray.length; i++) {
         if (id === todoArray[i].id) {
             todoArray.splice(i, 1);
-            return todoArray;
-         
+            return todoArray; 
         }
      
-      return 'error'
+ 
       
     }
+    return 'error'
 }
 
 

@@ -9,19 +9,7 @@ const Card = ({name, task, id, getData}) => {
 
   
 
-  function deleteTask() {
-    alert('hej')
-
-    MyApiService.deleteTask(id)
-    .then(response => {
-      console.log(response.data)
-      setData(response.data)
-      getData()
-     
-    })
-    .catch(error => console.log(error))
-  
-  }
+ 
 
 
 
