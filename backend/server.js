@@ -70,7 +70,7 @@ app.delete("/todo/:id", (req, res) => {
             return counter ++
     }
 
-  //Create
+  //CREATE
   app.post('/todo/add/:task/:name', (req, res) => {
       const task = req.params.task
       const name = req.params.name
@@ -86,6 +86,32 @@ app.delete("/todo/:id", (req, res) => {
       todoArray.push(newTask)
       res.status(201).send(todoArray)
 
+  })
+
+
+  //UPDATE
+  
+  const findTaskById = (id) => {
+    let object =  `Could not find object with id: ${id} `
+      todoArray.forEach(item => {
+          if (id === item.id) {
+              item.done = !false
+              object = item
+          
+              return 
+                
+          } 
+          
+      })
+
+      return todoArray
+  }
+
+
+  app.put('/todo/:id', (req, res) => {
+      const id = Number(req.params.id)
+      const responseFromDB = findTaskById(id)
+      res.send(responseFromDB)
   })
 
 

@@ -22,7 +22,7 @@
 }
 
 .add-btn {
-    margin-left: 10px;
+    margin-left: 20px;
     margin-right: 10px;
     font-size: 20px;
     letter-spacing: 2px;
@@ -40,12 +40,12 @@
 
 
 .card-wrapper {
-    width: 600px;
+    width: 700px;
     display:flex;
     justify-content: flex-start;
     align-items: center;
     margin-bottom: 30px;
-    padding: 15px 12px;
+    padding: 10px 12px 10px 15px;
     border-radius: 8px;
     background-color: #66b2b2;
     box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.7);
@@ -53,14 +53,16 @@
 }
 
 .task {
-    width: 300px;
+    width: 400px;
     font-family: monospace;
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: 500;
     color: white;
     letter-spacing: 1.2px;
 }
 
 .name {
+    width: 200px;
     font-family: monospace;
     font-size: 20px;
     color: white;
@@ -68,28 +70,49 @@
     margin-left: 100px;
 }
 
-.delete-btn, .edit-btn {
-    margin-left: 20px;
-    padding: 5px 8px;   
-    letter-spacing: 1.4px;
-    font-weight: 600;
-    background-color: #4B0082;
-    color: white;
+
+
+.btn {
+    width: 100px;
+    background-color: transparent;
     border: none;
-    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer
+}
+
+.check {
+    color: #006666;
+   font-size: 28px;
     cursor: pointer;
 }
 
-.delete-btn:hover, .edit-btn:hover{
-    opacity: 0.8;
+.redCheck {
+    color: red;
+    font-size: 28px;
+    cursor: pointer;
 }
 
+.linethrough {
+    text-decoration: line-through;
+}
 
 .close {
-    font-size: 30px;
-    background-color: #006666;
- 
-    outline:none;
-    border:none;
-    border-radius: 5px;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
 }
+
+.todo-label, .todo-name {
+    color: white;
+    font-family: monospace;
+    font-size: 28px;
+}
+
+.todo-name {
+    margin-left: 20px;
+}
+
+
+

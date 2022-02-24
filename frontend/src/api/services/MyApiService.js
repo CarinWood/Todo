@@ -12,9 +12,17 @@ const createTask = (task, name) => {
     return http.post(`/todo/add/${task}/${name}`)
 }
 
+const updateTaskDone = (id) => {
+    return http.put(`/todo/${id}`)
+}
+
+
+
 export default {
     todoArray,
     deleteTask,
     createTask,
+    updateTaskDone,
+   
    
 }

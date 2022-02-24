@@ -1,7 +1,9 @@
 import {useState} from 'react'
 import MyApiService from '../api/services/MyApiService'
 import './todoList.css'
-import { MdClear } from "react-icons/md";
+import { IoClose } from "react-icons/io5";
+import { BsCheckLg } from "react-icons/bs";
+
 
 const TodoList = () => {
 
@@ -34,13 +36,29 @@ const TodoList = () => {
     
     }
 
+
+    function updateDone(theId) {
+        console.log(theId)
+        MyApiService.updateTaskDone(theId)
+        .then(response => {
+          console.log(response.data)
+          setData(response.data)
+
+          
+        })
+    }
+
+    function updateDoneAgain(theId) {
+        console.log(theId)
+    }
+
   return (
     <div className="todo-container">
            <h1 className="headline">Todo List</h1>
       <div className="input-wrapper">
-            <p>Task:</p>
+            <p className="todo-label">To do:</p>
             <input className='input-field' value={task} type="text" onChange={e => setTask(e.target.value)} />
-            <p>Name:</p>
+            <p className="todo-name">Name:</p>
             <input className='input-field' value={name} type="text" onChange={e => setName(e.target.value)} />
            
             <button className="add-btn" onClick={addTask}>Add</button>
@@ -49,12 +67,17 @@ const TodoList = () => {
        
         <p>{data.map(obj => (
           <div className='card-wrapper'>
-          <p className='task'>{obj.task}</p>
+          <p className={obj.done === true ? 'task linethrough' : 'task'}>{obj.task}</p>
           <p className='name'>{obj.name}</p>
+          {obj.done === false ?<BsCheckLg className='check' onClick={()=>updateDone(obj.id)}/>
+          : <BsCheckLg className="redCheck" onClick={()=>updateDoneAgain(obj.id)}/>}
+        
           <button 
-           
+              className="btn"
               onClick={()=>deleteTask(obj.id)}>
-                <MdClear className="close"/>
+                <div>
+                <IoClose className='close'/>
+                </div>
           </button>
         
           </div>
