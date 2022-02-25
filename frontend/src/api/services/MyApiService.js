@@ -15,6 +15,9 @@ const createTask = (task, name) => {
 const updateTaskDone = (id) => {
     return http.put(`/todo/${id}`)
 }
+const updateTaskDoneAgain = (id) => {
+    return http.put(`/todo/again/${id}`)
+}
 
 
 
@@ -23,6 +26,7 @@ export default {
     deleteTask,
     createTask,
     updateTaskDone,
+    updateTaskDoneAgain
    
    
 }

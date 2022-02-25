@@ -114,5 +114,32 @@
     margin-left: 20px;
 }
 
+.edit-btn {
+    width: 60px;
+    font-size: 22px;
+    font-weight: 500;
+    font-family: monospace;
+    letter-spacing: 1.3px;
+    padding: 8px 0px;
+    background-color: #006666;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-btn:active {
+    transform: translateY(2px);
+}
+
+.edit-icon {
+    margin-left: 5px;
+}
+
+
+
 
 

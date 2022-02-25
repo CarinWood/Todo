@@ -3,6 +3,8 @@ import MyApiService from '../api/services/MyApiService'
 import './todoList.css'
 import { IoClose } from "react-icons/io5";
 import { BsCheckLg } from "react-icons/bs";
+import { FaRegEdit } from "react-icons/fa";
+
 
 
 const TodoList = () => {
@@ -10,6 +12,7 @@ const TodoList = () => {
     const [data, setData] = useState([])
     const [name, setName] = useState('')
     const [task, setTask] = useState('')
+
 
 
     function addTask() {
@@ -50,7 +53,14 @@ const TodoList = () => {
 
     function updateDoneAgain(theId) {
         console.log(theId)
+        MyApiService.updateTaskDoneAgain(theId)
+        .then(response => {
+          console.log(response.data)
+          setData(response.data)
+        })
     }
+
+
 
   return (
     <div className="todo-container">
@@ -68,6 +78,10 @@ const TodoList = () => {
         <p>{data.map(obj => (
           <div className='card-wrapper'>
           <p className={obj.done === true ? 'task linethrough' : 'task'}>{obj.task}</p>
+
+          <button className="edit-btn">
+              <FaRegEdit className="edit-icon"/>
+          </button>
           <p className='name'>{obj.name}</p>
           {obj.done === false ?<BsCheckLg className='check' onClick={()=>updateDone(obj.id)}/>
           : <BsCheckLg className="redCheck" onClick={()=>updateDoneAgain(obj.id)}/>}

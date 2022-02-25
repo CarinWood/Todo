@@ -15,24 +15,7 @@ app.use(cors(options))
 
 
 const todoArray = [
-    {
-        task: 'clean',
-        name: 'Carin',
-        done: false,
-        id: 0,
-    },
-    {
-        task: 'Shop',
-        name: 'Stefan',
-        done: false,
-        id: 1,
-    },
-    {
-        task: 'Play games',
-        name: 'Crille',
-        done: false,
-        id: 3,
-    }
+   
 ]
 
 app.get('/', (req,res) =>{
@@ -111,6 +94,26 @@ app.delete("/todo/:id", (req, res) => {
   app.put('/todo/:id', (req, res) => {
       const id = Number(req.params.id)
       const responseFromDB = findTaskById(id)
+      res.send(responseFromDB)
+  })
+
+  //UPDATE AGAIN
+  const updateDoneAgain = (id) => {
+    let object =  `Could not find object with id: ${id}`
+    todoArray.forEach(item => {
+        if(id === item.id) {
+            item.done = false
+            object = item
+            return
+        }
+    });
+        return todoArray
+  }
+
+
+  app.put('/todo/again/:id', (req,res) => {
+      const id = Number(req.params.id)
+      const responseFromDB = updateDoneAgain(id)
       res.send(responseFromDB)
   })
 
