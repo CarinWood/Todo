@@ -16,7 +16,7 @@ const TodoList = () => {
    
 
    
-    function checkData(id, newTask) {
+    function updateNewTask(id, newTask) {
       MyApiService.updateTask(id, newTask)
       .then(response => {
         setData(response.data)
@@ -26,8 +26,8 @@ const TodoList = () => {
    }
    
 
-    function updateEditMode(theId) {
-      MyApiService.updateEditMode(theId)
+    function updateEditMode(id) {
+      MyApiService.updateEditMode(id)
       .then(response => {
         console.log(response.data)
         setData(response.data)
@@ -45,9 +45,9 @@ const TodoList = () => {
       setName('')
     }
 
-    function deleteTask(theId) {
-      console.log(theId)
-       MyApiService.deleteTask(theId)
+    function deleteTask(id) {
+      console.log(id)
+       MyApiService.deleteTask(id)
       .then(response => {
         setData(response.data)
       
@@ -60,9 +60,9 @@ const TodoList = () => {
     }
 
 
-    function updateDone(theId) {
-        console.log(theId)
-        MyApiService.updateTaskDone(theId)
+    function updateDone(id) {
+        console.log(id)
+        MyApiService.updateTaskDone(id)
         .then(response => {
           console.log(response.data)
           setData(response.data)
@@ -71,9 +71,9 @@ const TodoList = () => {
         })
     }
 
-    function updateDoneAgain(theId) {
-        console.log(theId)
-        MyApiService.updateTaskDoneAgain(theId)
+    function updateDoneAgain(id) {
+        console.log(id)
+        MyApiService.updateTaskDoneAgain(id)
         .then(response => {
           console.log(response.data)
           setData(response.data)
@@ -100,10 +100,10 @@ const TodoList = () => {
 
             {obj.editMode === false ?
           <p className={obj.done === true ? 'task linethrough' : 'task'}>{obj.task}</p>
-              : <input value={newTask} onChange={(e)=>setNewTask(e.target.value)} className="changeTextInput" type="text" />} 
+              : <input value={newTask} onChange={(e)=>setNewTask(e.target.value)} className="changeTextInput" type="text"/>} 
            {obj.editMode === false ? <button className="edit-btn" onClick={()=>updateEditMode(obj.id)}>
               <FaRegEdit className="edit-icon"/>
-          </button> : <button className="done-btn" onClick={()=>checkData(obj.id, newTask)}>Done</button>}
+          </button> : <button className="done-btn" onClick={()=>updateNewTask(obj.id, newTask)}>Done</button>}
           <p className='name'>{obj.name}</p>
           {obj.done === false ?<BsCheckLg className='check' onClick={()=>updateDone(obj.id)}/>
           : <BsCheckLg className="redCheck" onClick={()=>updateDoneAgain(obj.id)}/>}
