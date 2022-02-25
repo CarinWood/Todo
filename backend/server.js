@@ -62,6 +62,7 @@ app.delete("/todo/:id", (req, res) => {
       let newTask = {
         task: task,
         done: false,
+        editMode: false,
         name: name,
         id: getId()
       }
@@ -115,6 +116,24 @@ app.delete("/todo/:id", (req, res) => {
       const id = Number(req.params.id)
       const responseFromDB = updateDoneAgain(id)
       res.send(responseFromDB)
+  })
+
+  //UPDATE EDIT MODE:
+  const updateEditMode = (id) => {
+    let object =  `Could not find object with id: ${id}`
+        todoArray.forEach(item => {
+            if (id === item.id) {
+                item.editMode = true
+                object = item
+                return
+            }
+        })
+            return todoArray
+  }
+  app.put('/todo/edit/:id', (req, res) => {
+      const id = Number(req.params.id)
+      const responseFromDB = updateEditMode(id)
+      res.status(201).send(responseFromDB)
   })
 
 

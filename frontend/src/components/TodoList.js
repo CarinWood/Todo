@@ -12,8 +12,18 @@ const TodoList = () => {
     const [data, setData] = useState([])
     const [name, setName] = useState('')
     const [task, setTask] = useState('')
+   
 
+   
 
+    function updateTaskText(theId) {
+      MyApiService.updateEditMode(theId)
+      .then(response => {
+        console.log(response.data)
+        setData(response.data)
+      })
+      .catch(error =>{console.log(error)})
+    }
 
     function addTask() {
       MyApiService.createTask(task, name)
@@ -79,9 +89,9 @@ const TodoList = () => {
           <div className='card-wrapper'>
           <p className={obj.done === true ? 'task linethrough' : 'task'}>{obj.task}</p>
 
-          <button className="edit-btn">
+           {obj.editMode === false ? <button className="edit-btn" onClick={()=>updateTaskText(obj.id)}>
               <FaRegEdit className="edit-icon"/>
-          </button>
+          </button> : <button>done</button>}
           <p className='name'>{obj.name}</p>
           {obj.done === false ?<BsCheckLg className='check' onClick={()=>updateDone(obj.id)}/>
           : <BsCheckLg className="redCheck" onClick={()=>updateDoneAgain(obj.id)}/>}
