@@ -160,6 +160,39 @@ app.delete("/todo/:id", (req, res) => {
   })
 
 
+  //Get all completed taks
+  const getCompletedTasks = () => {
+    const completedTasks = []
+        todoArray.forEach(item => {
+            if(item.done === true)
+            completedTasks.push(item)
+        })
+        return completedTasks
+  }
+
+
+  app.get('/todo/completed', (req, res) => {
+        const responseFromDB = getCompletedTasks()
+        res.status(200).send(responseFromDB)
+       
+  })
+
+  //Get all uncompleted tasks:
+  const getUncompletedTasks = () => {
+    const uncompletedTasks = []
+    todoArray.forEach(item => {
+        if(item.done === false)
+        uncompletedTasks.push(item)
+    })
+    return uncompletedTasks
+  }
+
+  app.get('/todo/uncompleted', (req, res) => {
+      const responseFromDB = getUncompletedTasks()
+      res.status(200).send(responseFromDB)
+  })
+
+
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`)

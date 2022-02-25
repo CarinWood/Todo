@@ -13,8 +13,41 @@ const TodoList = () => {
     const [name, setName] = useState('')
     const [task, setTask] = useState('')
     const [newTask, setNewTask] = useState('')
-   
 
+   
+  function selectHandler(selectValue) {
+    if (selectValue === 'completed') {
+      showCompletedTasks()
+    } else if (selectValue === 'uncompleted') {
+      showUncompletedTasks()
+    } else {
+      showAllTasks()
+    }  
+  }
+
+  function showCompletedTasks() {
+    MyApiService.getCompleted()
+    .then(response => {
+      setData(response.data)
+    })
+    .catch(error => console.log(error))
+  }
+
+  function showUncompletedTasks() {
+    MyApiService.getUncompleted()
+    .then(response => {
+      setData(response.data)
+    })
+    .catch(error => console.log(error))
+  }
+
+  function showAllTasks() {
+    MyApiService.todoArray() 
+    .then(response => {
+      setData(response.data)
+    })
+    .catch(error => console.log(error))
+  }
    
     function updateNewTask(id, newTask) {
       MyApiService.updateTask(id, newTask)
@@ -92,6 +125,12 @@ const TodoList = () => {
             <input className='input-field' value={name} type="text" onChange={e => setName(e.target.value)} />
            
             <button className="add-btn" onClick={addTask}>Add</button>
+
+            <select className="select" onChange={(e) =>{ selectHandler(e.target.value)}}>
+              <option value="all">All</option>
+              <option value="uncompleted">Uncompleted</option>
+              <option value="completed">Completed</option>
+            </select>
          
         </div>
        
@@ -115,12 +154,12 @@ const TodoList = () => {
                 <IoClose className='close'/>
                 </div>
           </button>
-        
+              
           </div>
         ))}</p>
       
         
-    
+              <footer className="footer">Created and Built by Carin Wood</footer>
     </div>
   )
 }

@@ -4,6 +4,14 @@ const todoArray = () => {
     return http.get('/todo')
 }
 
+const getCompleted = () => {
+    return http.get('/todo/completed')
+}
+
+const getUncompleted = () => {
+    return http.get('/todo/uncompleted')
+}
+
 const deleteTask = (id) => {
     return http.delete(`/todo/${id}`)
 }
@@ -38,4 +46,6 @@ export default {
     updateTaskDoneAgain,
     updateEditMode,   
     updateTask,
+    getCompleted,
+    getUncompleted,
 }
