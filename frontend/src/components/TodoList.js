@@ -12,11 +12,21 @@ const TodoList = () => {
     const [data, setData] = useState([])
     const [name, setName] = useState('')
     const [task, setTask] = useState('')
+    const [newTask, setNewTask] = useState('')
    
 
    
+    function checkData(id, newTask) {
+      MyApiService.updateTask(id, newTask)
+      .then(response => {
+        setData(response.data)
+        setNewTask('')
+      })
+   
+   }
+   
 
-    function updateTaskText(theId) {
+    function updateEditMode(theId) {
       MyApiService.updateEditMode(theId)
       .then(response => {
         console.log(response.data)
@@ -87,11 +97,13 @@ const TodoList = () => {
        
         <p>{data.map(obj => (
           <div className='card-wrapper'>
-          <p className={obj.done === true ? 'task linethrough' : 'task'}>{obj.task}</p>
 
-           {obj.editMode === false ? <button className="edit-btn" onClick={()=>updateTaskText(obj.id)}>
+            {obj.editMode === false ?
+          <p className={obj.done === true ? 'task linethrough' : 'task'}>{obj.task}</p>
+              : <input value={newTask} onChange={(e)=>setNewTask(e.target.value)} className="changeTextInput" type="text" />} 
+           {obj.editMode === false ? <button className="edit-btn" onClick={()=>updateEditMode(obj.id)}>
               <FaRegEdit className="edit-icon"/>
-          </button> : <button>done</button>}
+          </button> : <button className="done-btn" onClick={()=>checkData(obj.id, newTask)}>Done</button>}
           <p className='name'>{obj.name}</p>
           {obj.done === false ?<BsCheckLg className='check' onClick={()=>updateDone(obj.id)}/>
           : <BsCheckLg className="redCheck" onClick={()=>updateDoneAgain(obj.id)}/>}

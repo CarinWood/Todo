@@ -15,7 +15,7 @@ app.use(cors(options))
 
 
 const todoArray = [
-   
+  
 ]
 
 app.get('/', (req,res) =>{
@@ -133,6 +133,29 @@ app.delete("/todo/:id", (req, res) => {
   app.put('/todo/edit/:id', (req, res) => {
       const id = Number(req.params.id)
       const responseFromDB = updateEditMode(id)
+      res.status(201).send(responseFromDB)
+  })
+
+  //UPDATE TASK
+  const updateNewTask = (id, newText) => {
+    let object =  `Could not find object with id: ${id}`
+      todoArray.forEach(item => {
+          if (id === item.id) {
+              item.task = newText
+              item.editMode = false
+              object = item
+                return 
+          }
+      })
+   
+     
+     return todoArray
+  }
+
+  app.put('/todo/update/:id/:newText', (req, res) => {
+       const id = Number(req.params.id)
+       const newText = req.params.newText
+       const responseFromDB = updateNewTask(id, newText)
       res.status(201).send(responseFromDB)
   })
 

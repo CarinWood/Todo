@@ -24,6 +24,10 @@ const updateEditMode = (id) => {
     return http.put(`/todo/edit/${id}`)
 }
 
+const updateTask = (id, newText) => {
+    return http.put(`/todo/update/${id}/${newText}`)
+}
+
 
 
 export default {
@@ -33,4 +37,5 @@ export default {
     updateTaskDone,
     updateTaskDoneAgain,
     updateEditMode,   
+    updateTask,
 }
