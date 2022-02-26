@@ -64,6 +64,7 @@ app.delete("/todo/:id", (req, res) => {
             name: name,
             done: false,
             editMode: false,
+            value: "",
             id: getId(),
       }
 
