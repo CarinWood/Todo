@@ -1,10 +1,10 @@
 import express from 'express'
-import dotenv from 'dotenv'
 import cors from 'cors'
+import Configuration from './configurations/Configuration.js'
 
 const app = express()
-dotenv.config()
-const port = process.env.SERVER_PORT
+
+
 
 const options = {
     origin: '*',
@@ -215,6 +215,5 @@ app.put('/todo/updatevalue/:id/:newValue', (req, res) => {
 
 
 
-app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`)
-})
+//start server
+Configuration.connectToPort(app)
