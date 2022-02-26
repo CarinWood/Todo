@@ -1,6 +1,7 @@
 import express from 'express'
 import Configuration from './configurations/Configuration.js'
 import ApplyMiddlewares from './configurations/ApplyMiddlewares.js'
+import AliveController from './controller/AliveController.js'
 const app = express()
 
 
@@ -12,9 +13,7 @@ ApplyMiddlewares.applyMiddlewares(app)
 
 const todoArray = []
 
-app.get('/', (req,res) =>{
-    res.send('API is alive!')
-})
+app.get('/', AliveController.alive)
 
 app.get('/todo',(req, res) => {
     res.send(todoArray)
