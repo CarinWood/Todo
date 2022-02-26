@@ -1,22 +1,16 @@
 import express from 'express'
-import cors from 'cors'
 import Configuration from './configurations/Configuration.js'
-
+import ApplyMiddlewares from './configurations/ApplyMiddlewares.js'
 const app = express()
 
 
 
-const options = {
-    origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE']
-}
-
-app.use(cors(options))
+ApplyMiddlewares.applyMiddlewares(app)
 
 
-const todoArray = [
 
-]
+
+const todoArray = []
 
 app.get('/', (req,res) =>{
     res.send('API is alive!')
@@ -64,7 +58,6 @@ app.delete("/todo/:id", (req, res) => {
             name: name,
             done: false,
             editMode: false,
-            value: "",
             id: getId(),
       }
 
