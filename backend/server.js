@@ -16,12 +16,6 @@ app.use(cors(options))
 
 const todoArray = [
 
-   { task: 'Clean',
-    done: false,
-    editMode: false,
-    name: 'Carin',
-    value: '',
-    id: 1,}
 ]
 
 app.get('/', (req,res) =>{
@@ -66,7 +60,11 @@ app.delete("/todo/:id", (req, res) => {
       
       
       let newTask = {
-       
+            task: task,
+            name: name,
+            done: false,
+            editMode: false,
+            id: getId(),
       }
 
       todoArray.push(newTask)
