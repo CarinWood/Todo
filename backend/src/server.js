@@ -2,6 +2,7 @@ import express from 'express'
 import Configuration from './configurations/Configuration.js'
 import ApplyMiddlewares from './configurations/ApplyMiddlewares.js'
 import AliveController from './controller/AliveController.js'
+import TodoController from './controller/TodoController.js'
 const app = express()
 
 
@@ -64,6 +65,8 @@ app.delete("/todo/:id", (req, res) => {
       res.status(201).send(todoArray)
 
   })
+
+  app.post('/todo/add', TodoController.createTodo)
 
 
   //UPDATE
