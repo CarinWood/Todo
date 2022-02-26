@@ -35,6 +35,9 @@ const updateEditMode = (id) => {
 const updateTask = (id, newText) => {
     return http.put(`/todo/update/${id}/${newText}`)
 }
+const updateItemValue = (id, newValue) => {
+    return http.put(`/todo/updatevalue/${id}/${newValue}`)
+}
 
 
 
@@ -48,4 +51,5 @@ export default {
     updateTask,
     getCompleted,
     getUncompleted,
+    updateItemValue
 }

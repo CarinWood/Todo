@@ -114,6 +114,17 @@ const TodoList = () => {
     }
 
 
+    function updateValue(id, value) {
+        MyApiService.updateItemValue(id, value) 
+        .then(response => {
+          setData(response.data)
+        })
+        .catch(error => console.log(error))
+
+        
+    }
+
+
 
   return (
     <div className="todo-container">

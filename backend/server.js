@@ -15,7 +15,13 @@ app.use(cors(options))
 
 
 const todoArray = [
-  
+
+   { task: 'Clean',
+    done: false,
+    editMode: false,
+    name: 'Carin',
+    value: '',
+    id: 1,}
 ]
 
 app.get('/', (req,res) =>{
@@ -60,11 +66,7 @@ app.delete("/todo/:id", (req, res) => {
       
       
       let newTask = {
-        task: task,
-        done: false,
-        editMode: false,
-        name: name,
-        id: getId()
+       
       }
 
       todoArray.push(newTask)
@@ -158,6 +160,26 @@ app.delete("/todo/:id", (req, res) => {
        const responseFromDB = updateNewTask(id, newText)
       res.status(201).send(responseFromDB)
   })
+
+   //Update value
+   const updateValue = (id, newValue) => {
+        let object = `the id is: ${id} and the new value is ${newValue}`
+        todoArray.forEach(item => {
+            if (id === item.id) {
+                item.value = newValue
+                object = item
+                return todoArray
+            }
+        })
+        return todoArray
+}
+
+app.put('/todo/updatevalue/:id/:newValue', (req, res) => {
+    const newValue = req.params.newValue;
+    const id = Number(req.params.id)
+    const responseFromDB = updateValue(id, newValue)
+    res.status(201).send(responseFromDB)
+})
 
 
   //Get all completed taks
