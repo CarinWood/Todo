@@ -48,21 +48,7 @@ app.put('/todo/edit/:id', TodoController.updateEdit)
 app.put('/todo/update/:id/:newText', TodoController.updateTask)
 
 //Get all completed taks
-  const getCompletedTasks = () => {
-    const completedTasks = []
-        todoArray.forEach(item => {
-            if(item.done === true)
-            completedTasks.push(item)
-        })
-        return completedTasks
-  }
-
-
-  app.get('/todo/completed', (req, res) => {
-        const responseFromDB = getCompletedTasks()
-        res.status(200).send(responseFromDB)
-       
-  })
+app.get('/todo/completed', TodoController.completedTasks)
 
   //Get all uncompleted tasks:
   const getUncompletedTasks = () => {

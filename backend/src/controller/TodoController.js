@@ -133,6 +133,20 @@ const updateTask = (req, res) => {
     const responseFromDB = updateNewTask(id, newText)
    res.status(201).send(responseFromDB)
 }
+
+const getCompletedTasks = () => {
+    const completedTasks = []
+        todoArray.forEach(item => {
+            if(item.done === true)
+            completedTasks.push(item)
+        })
+        return completedTasks
+  }
+
+const completedTasks = (req, res) => {
+    const responseFromDB = getCompletedTasks()
+    res.status(200).send(responseFromDB)
+}
  
 export default {
     createTodo,
@@ -141,5 +155,6 @@ export default {
     updateAgain,
     updateEdit,
     deleteTodo,
-    updateTask
+    updateTask,
+    completedTasks
 }
