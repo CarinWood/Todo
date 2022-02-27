@@ -1,4 +1,4 @@
-import todoArray from '../server.js'
+import todoArray from '../data/todoArray.js'
 
 let counter = 0
 const getId = () => {
