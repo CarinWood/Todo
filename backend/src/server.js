@@ -3,6 +3,7 @@ import Configuration from './configurations/Configuration.js'
 import ApplyMiddlewares from './configurations/ApplyMiddlewares.js'
 import AliveController from './controller/AliveController.js'
 import TodoController from './controller/TodoController.js'
+
 const app = express()
 
 
@@ -10,9 +11,18 @@ const app = express()
 ApplyMiddlewares.applyMiddlewares(app)
 
 
+const todoArray = [
+    {
+        task: 'Clean',
+        done: false,
+        name: 'Carin',
+        id: 142,
+         editMode: false,
+    }
+]
 
+export default todoArray
 
-const todoArray = []
 
 app.get('/', AliveController.alive)
 
@@ -66,7 +76,7 @@ app.delete("/todo/:id", (req, res) => {
 
   })
 
-  app.post('/todo/add', TodoController.createTodo)
+  app.post('/todo/add/', TodoController.createTodo)
 
 
   //UPDATE

@@ -1,5 +1,7 @@
+
+
 const alive = (req, res) => {
-    res.status(200).send('API is alive!')
+    res.status(200).send('API is alive')
 }
 
 export default {
