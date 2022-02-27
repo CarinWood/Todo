@@ -172,7 +172,7 @@ const TodoList = () => {
         ))}</p>
       
         
-              <footer className="footer">Created and Built by Carin Wood</footer>
+             
     </div>
   )
 }
