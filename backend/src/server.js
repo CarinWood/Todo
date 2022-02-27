@@ -26,9 +26,11 @@ export default todoArray
 
 app.get('/', AliveController.alive)
 
-app.get('/todo',(req, res) => {
-    res.send(todoArray)
-})
+//Get todo array
+app.get('/todo', TodoController.getTodos)
+
+
+
 
 const deleteTask = (id) => {
    
@@ -52,77 +54,18 @@ app.delete("/todo/:id", (req, res) => {
     res.send(responsefromDB);
   })
 
-    let counter = 0
-    const getId = () => {
-            return counter ++
-    }
+  
 
   //CREATE
-  app.post('/todo/add/:task/:name', (req, res) => {
-      const task = req.params.task
-      const name = req.params.name
-      
-      
-      let newTask = {
-            task: task,
-            name: name,
-            done: false,
-            editMode: false,
-            id: getId(),
-      }
-
-      todoArray.push(newTask)
-      res.status(201).send(todoArray)
-
-  })
-
-  app.post('/todo/add/', TodoController.createTodo)
+  app.post('/todo/add/:task/:name', TodoController.createTodo)
 
 
-  //UPDATE
-  
-  const findTaskById = (id) => {
-    let object =  `Could not find object with id: ${id} `
-      todoArray.forEach(item => {
-          if (id === item.id) {
-              item.done = !false
-              object = item
-          
-              return 
-                
-          } 
-          
-      })
+  //UPDATE DONE
 
-      return todoArray
-  }
+  app.put('/todo/:id', TodoController.updateDone)
 
-
-  app.put('/todo/:id', (req, res) => {
-      const id = Number(req.params.id)
-      const responseFromDB = findTaskById(id)
-      res.send(responseFromDB)
-  })
-
-  //UPDATE AGAIN
-  const updateDoneAgain = (id) => {
-    let object =  `Could not find object with id: ${id}`
-    todoArray.forEach(item => {
-        if(id === item.id) {
-            item.done = false
-            object = item
-            return
-        }
-    });
-        return todoArray
-  }
-
-
-  app.put('/todo/again/:id', (req,res) => {
-      const id = Number(req.params.id)
-      const responseFromDB = updateDoneAgain(id)
-      res.send(responseFromDB)
-  })
+  //UPDATE DONE AGAIN
+ app.put('/todo/again/:id', TodoController.updateAgain)
 
   //UPDATE EDIT MODE:
   const updateEditMode = (id) => {
