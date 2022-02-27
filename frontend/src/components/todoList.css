@@ -176,6 +176,72 @@
     letter-spacing: 0.3px;
 }
 
+.newTask-div {
+    width: 500px;
+    height: 300px;
+    position: absolute;
+    top: 25%;
+    right: 35%;
+    background-color: #006666;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 50px 10px;
+    outline: none;
+    border: 2px dotted white;
+}
+
+.newTask-headline {
+    font-size: 25px;
+    font-weight: 500;
+    color: white;
+    font-family: monospace;
+    margin-bottom: 10px;
+  
+}
+
+.newTask-input {
+    width: 280px;
+    padding: 5px;
+    padding-left: 10px;
+    font-size: 20px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 40px;
+}
+
+.done-button {
+    
+    font-size: 22px;
+    font-weight: 500;
+    font-family: monospace;
+    letter-spacing: 1.3px;
+    padding: 8px 0px;
+    background-color: teal;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.done-button:hover {
+    
+}
+
+.done-button:active {
+    transform: translateY(2px);
+}
+
+
 
 
 
