@@ -147,7 +147,20 @@ const completedTasks = (req, res) => {
     const responseFromDB = getCompletedTasks()
     res.status(200).send(responseFromDB)
 }
+
+const getUncompletedTasks = () => {
+    const uncompletedTasks = []
+    todoArray.forEach(item => {
+        if(item.done === false)
+        uncompletedTasks.push(item)
+    })
+    return uncompletedTasks
+  }
  
+const uncompletedTasks = (req, res) => {
+    const responseFromDB = getUncompletedTasks()
+    res.status(200).send(responseFromDB)
+}
 export default {
     createTodo,
     getTodos,
@@ -156,5 +169,6 @@ export default {
     updateEdit,
     deleteTodo,
     updateTask,
-    completedTasks
+    completedTasks,
+    uncompletedTasks
 }
