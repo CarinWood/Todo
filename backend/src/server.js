@@ -1,8 +1,8 @@
 import express from 'express'
 import Configuration from './configurations/Configuration.js'
 import ApplyMiddlewares from './configurations/ApplyMiddlewares.js'
-import AliveController from './controller/AliveController.js'
 import TodoController from './controller/TodoController.js'
+import AliveRoutes from './routes/AliveRoutes.js'
 
 const app = express()
 
@@ -23,8 +23,8 @@ const todoArray = [
 
 export default todoArray
 
+AliveRoutes.routes(app)
 
-app.get('/', AliveController.alive)
 
 //Get todo array
 app.get('/todo', TodoController.getTodos)
