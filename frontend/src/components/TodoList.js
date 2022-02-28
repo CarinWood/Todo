@@ -162,7 +162,7 @@ const TodoList = () => {
                 </div>
           </button>
 
-          {obj.editMode == true ? <div className="newTask-div">
+          {obj.editMode === true ? <div className="newTask-div">
               <h2 className='newTask-headline'>Edit To do task:</h2>
               <input className='newTask-input' type="text" value={newTask} onChange={(e)=>setNewTask(e.target.value)} />
               <button className='done-button' onClick={()=>updateNewTask(obj.id, newTask)}>Done</button>
