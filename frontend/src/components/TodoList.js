@@ -137,10 +137,9 @@ const TodoList = () => {
               <option value="completed">Completed</option>
             </select>
 
-          
-         
-        </div>
-       
+      </div>
+      
+      <div className='card'>
         <p>{data.map(obj => (
           <div className='card-wrapper'>
 
@@ -172,7 +171,7 @@ const TodoList = () => {
         ))}</p>
       
         
-             
+      </div>     
     </div>
   )
 }
