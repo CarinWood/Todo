@@ -10,6 +10,8 @@
    npm i cors
    npm i express
    npm i dotenv
+   npm i helmet
+   npm i morgan 
 ```
 
 <details>
