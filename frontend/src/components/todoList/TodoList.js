@@ -144,7 +144,7 @@ const TodoList = () => {
           <div className='card-wrapper'>
 
            
-          <p data-testid="texttask" className={obj.done === true ? 'task linethrough' : 'task'}>{obj.task}</p>
+          <p className={obj.done === true ? 'task linethrough' : 'task'}>{obj.task}</p>
              
           <button className="edit-btn" onClick={()=>updateEditMode(obj.id)}>
               <FaRegEdit className="edit-icon"/>
