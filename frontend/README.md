@@ -172,4 +172,4 @@ Jag valde att använda mig av det här förhållningssättet för att utmana mig
 
 Jag kunde kanske ha lagt ned mer tid på designen, färgerna och utformningen. Min kreativitet blev inte så stimulerad av karaktären på det här projektet.
 
-Jag kunde ha delat upp koden lite mer i TodoList.js- filen. Kanske lagt en del av koden i andra filer.
+Jag kunde ha delat upp koden lite mer i TodoList.js- filen. Kanske lagt en del av koden i andra filer. Jag fokuserade mer på backend än på frontend i det här projektet.

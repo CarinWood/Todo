@@ -61,7 +61,8 @@ const TodoList = () => {
    }
    
 
-    function updateEditMode(id) {
+    function updateEditMode(id, todo) {
+      setNewTask(todo)
       MyApiService.updateEditMode(id)
       .then(response => {
         console.log(response.data)
@@ -116,6 +117,9 @@ const TodoList = () => {
         })
     }
 
+    function clearField() {
+      setNewTask('')
+    }
 
    
 
@@ -146,7 +150,7 @@ const TodoList = () => {
            
           <p className={obj.done === true ? 'task linethrough' : 'task'}>{obj.task}</p>
              
-          <button className="edit-btn" onClick={()=>updateEditMode(obj.id)}>
+          <button className="edit-btn" onClick={()=>updateEditMode(obj.id, obj.task)}>
               <FaRegEdit className="edit-icon"/>
           </button> 
           <p className='name'>{obj.name}</p>
@@ -164,6 +168,7 @@ const TodoList = () => {
           {obj.editMode === true ? <div className="newTask-div">
               <h2 className='newTask-headline'>Edit To do task:</h2>
               <input className='newTask-input' type="text" value={newTask} onChange={(e)=>setNewTask(e.target.value)} />
+              {newTask.length > 0 && <button className='clear-btn' onClick={clearField}><IoClose className='clear'/></button>}
               <button className='done-button' onClick={()=>updateNewTask(obj.id, newTask)}>Done</button>
               </div>: '' }
               
