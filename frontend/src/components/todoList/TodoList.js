@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import MyApiService from '../api/services/MyApiService'
+import MyApiService from '../../api/services/MyApiService'
 import './todoList.css'
 import { IoClose } from "react-icons/io5";
 import { BsCheckLg } from "react-icons/bs";
@@ -122,17 +122,17 @@ const TodoList = () => {
 
   return (
     <div className="todo-container">
-           <h1 className="headline">Todo List</h1>
+           <h1 className="headline" data-testid="headline">Todo List</h1>
       <div className="input-wrapper">
             <p className="todo-label">To do:</p>
-            <input className='input-field' value={task} type="text" onChange={e => setTask(e.target.value)} />
+            <input data-testid="textinput" className='input-field' value={task} type="text" onChange={e => setTask(e.target.value)} />
             <p className="todo-name">Name:</p>
-            <input className='input-field' value={name} type="text" onChange={e => setName(e.target.value)} />
+            <input data-testid="nameinput" className='input-field' value={name} type="text" onChange={e => setName(e.target.value)} />
            
-            <button className="add-btn" onClick={addTask}>Add</button>
+            <button className="add-btn" onClick={addTask} data-testid="btn">Add</button>
 
             <select className="select" onChange={(e) =>{ selectHandler(e.target.value)}}>
-              <option value="all">All</option>
+              <option value="all" data-testid="all">All</option>
               <option value="uncompleted">Uncompleted</option>
               <option value="completed">Completed</option>
             </select>
@@ -144,7 +144,7 @@ const TodoList = () => {
           <div className='card-wrapper'>
 
            
-          <p className={obj.done === true ? 'task linethrough' : 'task'}>{obj.task}</p>
+          <p data-testid="texttask" className={obj.done === true ? 'task linethrough' : 'task'}>{obj.task}</p>
              
           <button className="edit-btn" onClick={()=>updateEditMode(obj.id)}>
               <FaRegEdit className="edit-icon"/>

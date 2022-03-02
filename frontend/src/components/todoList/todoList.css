@@ -24,6 +24,14 @@
     border-radius: 5px;
 }
 
+.headline {
+    font-family: monospace;
+    font-size: 38px;
+    color: var(--text-color);
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+
 .add-btn {
     margin-left: 20px;
     margin-right: 10px;
@@ -33,7 +41,7 @@
     border: none;
     border-radius: 5px;
     color: white;
-    background-color: #006666;
+    background-color: var(--secondary-color);
     cursor: pointer;
 }
 
@@ -50,7 +58,7 @@
     align-items: center;
     padding: 15px 12px 15px 18px;
     border-radius: 8px;
-    background-color: #66b2b2;
+    background-color: var(--third-color);
     box-shadow: 0px 10px 20px 0px rgba(0,0,0,0.7);
 
 }
@@ -60,7 +68,7 @@
     font-family: monospace;
     font-size: 25px;
     font-weight: 500;
-    color: white;
+    color: var(--text-color);
     letter-spacing: 1.2px;
     margin-right: 0px;
 }
@@ -69,7 +77,7 @@
     width: 300px;
     font-family: monospace;
     font-size: 23px;
-    color: white;
+    color: var(--text-color);
     letter-spacing: 1.2px;
     margin-left: 20px;
     margin-right: 20px;
@@ -80,7 +88,7 @@
 
 
 .btn {
-    border: 6px solid white;
+    border: 6px solid var(--text-color);
     width: 100px;
     background-color: transparent;
     border: none;
@@ -92,7 +100,7 @@
 }
 
 .check {
-    color: #006666;
+    color: var(--secondary-color);
    font-size: 45px;
     cursor: pointer;
   
@@ -109,13 +117,13 @@
 }
 
 .close {
-    color: white;
+    color: var(--text-color);
     font-size: 40px;
     cursor: pointer;
 }
 
 .todo-label, .todo-name {
-    color: white;
+    color: var(--text-color);
     font-family: monospace;
     font-size: 28px;
 }
@@ -132,8 +140,8 @@
     font-family: monospace;
     letter-spacing: 1.3px;
     padding: 8px 5px;
-    background-color: #006666;
-    color: white;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -180,7 +188,7 @@
     position: absolute;
     top: 25%;
     right: 35%;
-    background-color: #006666;
+    background-color: var(--secondary-color);
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -188,7 +196,7 @@
     align-items: center;
     padding: 50px 10px;
     outline: none;
-    border: 2px dotted white;
+    border: 2px dotted var(--text-color);
     animation-duration: 0.4s;
     animation-name: taskDiv;
 
@@ -244,7 +252,7 @@
 .newTask-headline {
     font-size: 25px;
     font-weight: 500;
-    color: white;
+    color: var(--text-color);
     font-family: monospace;
     margin-bottom: 10px;
   
@@ -268,8 +276,8 @@
     font-family: monospace;
     letter-spacing: 1.3px;
     padding: 8px 0px;
-    background-color: teal;
-    color: white;
+    background-color: var(--primary-color);
+    color: var(--text-color);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -340,7 +348,7 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        border: 1px solid white;
+        border: 1px solid var(--text-color);
         padding: 10px 5px;
         position: relative;
         margin-top: 0px;

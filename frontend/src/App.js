@@ -1,6 +1,6 @@
-import './App.css';
 import Footer from './components/footer/Footer';
-import TodoList from './components/TodoList';
+import TodoList from './components/todoList/TodoList';
+
 
 
 function App() {
