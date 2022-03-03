@@ -10,18 +10,11 @@ const options = {
 
 
 
-const someBananaMiddlewareFunction = (req,res, next) => {
-    console.log('banana')
-    next()
-}
-
-
 
 const apply = (app) => {
     app.use(helmet())
     app.use(cors(options))
     app.use(express.json())
-    app.use(someBananaMiddlewareFunction)
     app.use(morgan('common'))    
 }
 
