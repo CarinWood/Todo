@@ -64,7 +64,7 @@ const createAnotherTodo = () => {
 
 const getTodos = () => {
     describe('Testing to get an array of todos (GET)', () => {
-        it ('should expect an array of todos to be returned', (done) => {
+        it('should expect an array of todos to be returned', (done) => {
             Chai.request(app)
             .get('/todo')
             .end((error, response) => {
@@ -188,6 +188,63 @@ const getAllCompletedTodos = () => {
     })
 }
 
+const getAllUncompletedTodos = () => {
+    describe('get all uncompleted todos in an array', () => {
+        it('should expect an array with uncompleted todos', (done) => {
+            Chai.request(app)
+            .get('/todo/uncompleted')
+            .end((error, response) => {
+                const body = response.body
+                const todo = (body[0])
+                expect(body.length).to.equal(1)
+                expect(todo.done).to.equal(false)
+                expect(response.status).to.equal(200)
+                expect(todo).to.be.an('object')
+                expect(body).to.be.an('array')
+                done()
+            })    
+        })
+    })
+}
+
+
+const deleteTodo = () => {
+    describe('delete an object from the array', () => {
+        it('Should expect an array', (done) => {
+            Chai.request(app)
+            .delete('/todo/0')
+            .end((error, response) => {
+                const body = response.body
+                expect(response.status).to.equal(200)
+                expect(body.length).to.equal(1)
+                expect(body).to.be.an('array')
+                done()
+            })
+        })
+    })
+}
+
+const getTodoArrayAgain = () => {
+     describe('Testing to get an array of todos (GET)', () => {
+         it('should expect an array of todos to be returned', (done) => {
+             Chai.request(app)
+             .get('/todo')
+             .end((error, response) => {
+                const body = response.body
+                const todo = body[0]
+                 expect(response.status).to.equal(200)
+                 expect(body).to.be.an('array')   
+                 expect(body.length).to.equal(1)  
+                 expect(todo).to.be.an('object')
+                 expect(todo.task).to.equal('Cook')
+                 expect(todo.name).to.equal('Carl')
+                 done()
+             })
+
+         })
+     })
+ }
+
 describe('TESTNIG TODO API ROUTES!', () => {
         testNonExistingRoute()
         createTodo()
@@ -199,6 +256,7 @@ describe('TESTNIG TODO API ROUTES!', () => {
         updateEditModeToTrue()
         updateTask()
         getAllCompletedTodos()
-        
-       
+        getAllUncompletedTodos()
+        deleteTodo()    
+        getTodoArrayAgain()   
 })
