@@ -56,39 +56,39 @@ const TodoList = () => {
 
   return (
     <div className="todo-container">
-           <h1 className="headline" data-testid="headline">Todo List</h1>
+          <h1 className="headline" data-testid="headline">Todo List</h1>
     
-     <InputArea  setData={setData}/>
+          <InputArea  setData={setData}/>
       
-      <div className='card'>
-        {data.length > 0 ? <p>{data.map(obj => (
-          <div className='card-wrapper'>
+          <div className='card'>
+                {data.length > 0 ? <p>{data.map(obj => (
+                  <div className='card-wrapper'>
 
-           
-          <p className={obj.done === true ? 'task linethrough' : 'task'}>{obj.task}</p>
-             
-          <button className="edit-btn" onClick={()=>updateEditMode(obj.id, obj.task)}>
-              <FaRegEdit className="edit-icon"/>
-          </button> 
-          <p className='name'>{obj.name}</p>
-          {obj.done === false ?<BsCheckLg className='check' onClick={()=>updateDone(obj.id)}/>
-          : <BsCheckLg className="redCheck" onClick={()=>updateDoneAgain(obj.id)}/>}
-        
-          <button 
-              className="btn"
-              onClick={()=>deleteTask(obj.id)}>
-                <div>
-                <IoClose className='close'/>
-                </div>
-          </button>
+                  <p className={obj.done === true ? 'task linethrough' : 'task'}>{obj.task}</p>
+                    
+                  <button className="edit-btn" onClick={()=>updateEditMode(obj.id, obj.task)}>
+                      <FaRegEdit className="edit-icon"/>
+                  </button> 
 
-          {obj.editMode === true ? <NewTaskDiv id={obj.id} setData={setData} tasktext={obj.task} />: '' }
-              
-          </div>
-        ))}</p> : <Placeholder/>}
+                  <p className='name'>{obj.name}</p>
 
-      </div>     
+                  {obj.done === false ? <BsCheckLg className='check' onClick={()=>updateDone(obj.id)}/>
+                  : <BsCheckLg className="redCheck" onClick={()=>updateDoneAgain(obj.id)}/>}
+                
+                  <button 
+                      className="btn"
+                      onClick={()=>deleteTask(obj.id)}>
+                        <div>
+                        <IoClose className='close'/>
+                        </div>
+                  </button>
 
+                  {obj.editMode === true ? <NewTaskDiv id={obj.id} setData={setData} tasktext={obj.task} />: '' }
+                      
+                  </div>
+                ))}</p> : <Placeholder/>}
+
+          </div>     
     </div>
   )
 }
