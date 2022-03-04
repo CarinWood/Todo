@@ -92,7 +92,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## Planering
 
-Jag planerade mitt arbete i små steg som jag sedan utförde. Resultatet blev som jag tänkt mig att det skulle bli.
+Jag planerade mitt arbete i Trello som jag sedan utförde steg för steg.
+[Länk till planering i Trello](https://trello.com/b/kBmjK5et/todo-list)
 
 ## Vad var besvärligt att få till? / Varför jag bytte lösning
 
@@ -175,3 +176,7 @@ Jag valde att använda mig av det här förhållningssättet för att utmana mig
 Jag kunde kanske ha lagt ned mer tid på designen, färgerna och utformningen. Min kreativitet blev inte så stimulerad av karaktären på det här projektet.
 
 Jag kunde ha delat upp koden lite mer i TodoList.js- filen. Kanske lagt en del av koden i andra filer. Jag fokuserade mer på backend än på frontend i det här projektet.
+
+## Resultat
+
+Jag är i det stora hela nöjd med resultatet av projektet. Det är en fullt fungerande todo list och koden är strukturerad i komponenter och separata filer. Det sparsamma användargränssnittet gör att det är lätt att hitta fält att skriva i och knappar och gör det lätt för användaren att förstå hur applikationen fungerar.
