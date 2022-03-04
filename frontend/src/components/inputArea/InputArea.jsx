@@ -50,20 +50,32 @@ const InputArea = ({setData, }) => {
       }
 
   return (
-    <div className="input-wrapper">
-            <p className="todo-label">To do:</p>
-            <input data-testid="textinput" className='input-field' value={task} type="text" onChange={e => setTask(e.target.value)} />
-            <p className="todo-name">Name:</p>
-            <input data-testid="nameinput" className='input-field' value={name} type="text" onChange={e => setName(e.target.value)} />
-           
-            <button className="add-btn" onClick={addTask} data-testid="btn">Add</button>
+      <div className="input-wrapper">
+              <p className="todo-label">To do:</p>
 
-            <select className="select" onChange={(e) =>{ selectHandler(e.target.value)}}>
-              <option value="all" data-testid="all">All</option>
-              <option value="uncompleted">Uncompleted</option>
-              <option value="completed">Completed</option>
-            </select>
+              <input 
+                  data-testid="textinput" 
+                  className='input-field' 
+                  value={task} type="text" 
+                  onChange={e => setTask(e.target.value)} 
+              />
 
+              <p className="todo-name">Name:</p>
+
+              <input 
+                  data-testid="nameinput" 
+                  className='input-field' 
+                  value={name} type="text" 
+                  onChange={e => setName(e.target.value)} 
+              />
+            
+              <button className="add-btn" onClick={addTask} data-testid="btn">Add</button>
+
+              <select className="select" onChange={(e) =>{ selectHandler(e.target.value)}}>
+                  <option value="all" data-testid="all">All</option>
+                  <option value="uncompleted">Uncompleted</option>
+                  <option value="completed">Completed</option>
+              </select>
       </div>
   )
 }
