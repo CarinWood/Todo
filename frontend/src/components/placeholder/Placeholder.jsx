@@ -1,25 +1,11 @@
 import './placeholder.css'
 
+
 const Placeholder = () => {
   return (
     <div className='placeholder-div'>
-        <div className='center'>
-            <div className='cloud'></div>
-            <ul className='sun'>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
-       
-        <p className='credits'>Created and Build by Carin Wood</p>
-
+        <h3 className='placeholder-text'>There is no task in your list yet!</h3>
+     
     </div>
   )
 }

@@ -9,6 +9,13 @@ test("TodoList headline renders with correct text", () => {
     expect(headlineElement.textContent).toBe("Todo List")
 })
 
+test("TodoList headline renders with correct className", () => {
+    const component = render(<TodoList/>);
+    const headlineElement = component.getByTestId("headline");
+
+    expect(headlineElement.className).toBe("headline")
+})
+
 test("Render button with correct text", () => {
     const component = render(<TodoList/>);
     const buttonElement = component.getByTestId("btn");

@@ -12,6 +12,8 @@
    npm i dotenv
    npm i helmet
    npm i morgan 
+   npm i mocha
+   npm i Chai
 ```
 
 <details>
@@ -90,7 +92,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 ## Planering
 
-Jag planerade mitt arbete i små steg som jag sedan utförde och tycker att resultatet blev som jag tänkt mig att det skulle bli.
+Jag planerade mitt arbete i små steg som jag sedan utförde. Resultatet blev som jag tänkt mig att det skulle bli.
 
 ## Vad var besvärligt att få till? / Varför jag bytte lösning
 
@@ -101,7 +103,7 @@ Jag löste detta genom att istället göra ett gemensamt input field som kommer 
 ## Några kodexempel
 
 I fontend har jag egentligen inte använt mig av någonting nytt. Jag har många funktioner och ternary operators.
-Nedan är ett exempel på en ternary operator som har använts för att lägga till en klassen linethrough om propertyn "done" är sann. Om den inte är sann ska inte linethrough läggas till som klass. Klassen linethrough gör så att texten får en linje genom sig.
+Nedan är ett exempel på en ternary operator som har använts för att lägga till klassen linethrough om propertyn "done" är sann. Om den inte är sann ska inte linethrough läggas till som klass. Klassen linethrough gör så att texten får en linje genom sig.
 
 ```javascript
 
@@ -142,13 +144,13 @@ De gånger jag har behövt felsöka har jag använt mig av console.log för att 
 
 ## Vad som gick bra / Vad som gick dåligt
 
-När jag väl kom igång att bygga så gick det både snabbt och ganska lätt. Jag försökte göra en intressant design men hade inte så mycket roliga idéer på design och animeringar för en Todo-lista.
+När jag väl kom igång att bygga så gick det både snabbt och ganska lätt. Jag försökte göra en intressant design men hade inte så mycket roliga idéer på design och animeringar för en Todo-lista. Jag tycker även att det lätt blir "stökigt" med animeringar som rör sig på skärmen när det är en så pass enkel och stilren sida i övrigt.
 
 Det enda som egentligen gick dåligt var problemet jag beskrev ovan med att det blev text i flera input-fields samtidigt, men jag löste problemet på ett bra sätt.
 
 ## Vad jag har lärt mig
 
-Jag har lärt mig att koppla ihop frontend och backend. Jag har lärt mig använda axios och andra npm paket som är användbara. Jag har även lärt mig att använda Insomnia.
+Jag har lärt mig att koppla ihop frontend och backend. Jag har lärt mig använda axios och andra npm paket som är användbara. Jag har även lärt mig att använda Insomnia. Jag har lärt mig om olika typer av tester.
 
 ## Framtida möjligheter
 
@@ -156,11 +158,11 @@ Kursen i webbserverprogrammering har gett mig en inblick i hur frontend/backend 
 
 ## UX/UI
 
-Jag valde att arbeta med ett enhetligt färgschema i skalan omkring fägen teal. Jag ville ha en lugn färg som inte sticker ut så mycket och stressar.
+Jag valde att arbeta med ett enhetligt färgschema i skalan omkring fägen "teal". Jag ville ha en lugn färg som inte sticker ut så mycket och stressar.
 
-Jag använde mig av typsnittet Monospace som liknar typsnittet på skrivmaskin.
+Jag använde mig av typsnittet Monospace som liknar ett typsnitt på en skrivmaskin.
 
-Jag har placerat fält och knappar så att det ska bli tydligt och lätt att använda. Jag har inte med någonting "extra" utan andast Todo-listan och det som är nödvändigt för att den ska fungera på ett bra sätt.
+Jag har placerat fält och knappar så att det ska bli tydligt och lätt att använda. Jag har inte gjort så mycket "extra" utan andast Todo-listan och det som är nödvändigt för att den ska fungera på ett bra sätt.
 
 ## Lösningar jag valde att INTE implementera
 
