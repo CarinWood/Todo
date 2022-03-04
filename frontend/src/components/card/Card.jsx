@@ -45,28 +45,26 @@ const Card = ({id, done, task, setData, name, editMode}) => {
 
   return (
     <div className='card-wrapper'>
+            <p className={done === true ? 'task linethrough' : 'task'}>{task}</p>
+            
+            <button className="edit-btn" onClick={()=>updateEditMode(id, task)}>
+                <FaRegEdit className="edit-icon"/>
+            </button> 
 
-    <p className={done === true ? 'task linethrough' : 'task'}>{task}</p>
-      
-    <button className="edit-btn" onClick={()=>updateEditMode(id, task)}>
-        <FaRegEdit className="edit-icon"/>
-    </button> 
+            <p className='name'>{name}</p>
 
-    <p className='name'>{name}</p>
-
-    {done === false ? <BsCheckLg className='check' onClick={()=>updateDone(id)}/>
-    : <BsCheckLg className="redCheck" onClick={()=>updateDoneAgain(id)}/>}
-  
-    <button 
-        className="btn"
-        onClick={()=>deleteTask(id)}>
-          <div>
-          <IoClose className='close'/>
-          </div>
-    </button>
-
-    {editMode === true ? <NewTaskDiv id={id} setData={setData} tasktext={task} />: '' }
+            {done === false ? <BsCheckLg className='check' onClick={()=>updateDone(id)}/>
+            : <BsCheckLg className="redCheck" onClick={()=>updateDoneAgain(id)}/>}
         
+            <button 
+                className="btn"
+                onClick={()=>deleteTask(id)}>
+                <div>
+                    <IoClose className='close'/>
+                </div>
+            </button>
+
+            {editMode === true ? <NewTaskDiv id={id} setData={setData} tasktext={task} />: '' }  
     </div>
   )
 }
