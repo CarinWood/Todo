@@ -14,8 +14,6 @@ import InputArea from '../inputArea/InputArea';
 const TodoList = () => {
 
     const [data, setData] = useState([])
-    const [name, setName] = useState('')
-    const [task, setTask] = useState('')
     const [newTask, setNewTask] = useState('')
  
 
