@@ -5,21 +5,16 @@ import MyApiService from '../../api/services/MyApiService';
 const NewTaskDiv = ({id, setData, tasktext}) => {
     const [newTask, setNewTask] = useState(tasktext)
     
-
     function clearField() {
         setNewTask('')
       }
 
-      
     function updateNewTask(id, newTask) {
         MyApiService.updateTask(id, newTask)
         .then(response => {
-            console.log(response.data)
           setData(response.data)
           setNewTask('')
-          
         })
-     
      }
 
 
