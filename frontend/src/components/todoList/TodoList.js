@@ -4,7 +4,7 @@ import './todoList.css'
 import { IoClose } from "react-icons/io5";
 import { BsCheckLg } from "react-icons/bs";
 import { FaRegEdit } from "react-icons/fa";
-import Footer from '../footer/Footer'
+
 
 
 
@@ -174,10 +174,13 @@ const TodoList = () => {
               </div>: '' }
               
           </div>
-        ))}</p> : <div className='placeholder-text'>You have nothing to do</div>}
+        ))}</p> : <div className='placeholder-div'>
+                      You have nothing to do :-)
+                      <p className='credits'>Created and Build by Carin Wood</p>
+                  </div>}
 
-          <Footer/>
       </div>     
+
     </div>
   )
 }
