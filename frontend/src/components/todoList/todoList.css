@@ -426,7 +426,7 @@
         justify-content: flex-start;
         margin-left: 0px;
         margin-right: 0px;
-        margin-top: 5px;
+        margin-top: 23px;
         font-size: 20px;
     }
 
@@ -436,7 +436,7 @@
         display: flex;
         justify-content: flex-start;
         margin-right: 0px;
-        margin-top: 0px;
+        margin-top: 5px;
 
     }
 
@@ -449,8 +449,9 @@
         z-index: 5;
     }
 
-
-       
+    .clear-btn {
+        right: 10%;
+    }  
 }
 
 
