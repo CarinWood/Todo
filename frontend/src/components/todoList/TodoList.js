@@ -4,6 +4,7 @@ import './todoList.css'
 import { IoClose } from "react-icons/io5";
 import { BsCheckLg } from "react-icons/bs";
 import { FaRegEdit } from "react-icons/fa";
+import Footer from '../footer/Footer'
 
 
 
@@ -144,7 +145,7 @@ const TodoList = () => {
       </div>
       
       <div className='card'>
-        <p>{data.map(obj => (
+        {data.length > 0 ? <p>{data.map(obj => (
           <div className='card-wrapper'>
 
            
@@ -173,9 +174,9 @@ const TodoList = () => {
               </div>: '' }
               
           </div>
-        ))}</p>
-      
-        
+        ))}</p> : <div className='placeholder-text'>You have nothing to do</div>}
+
+          <Footer/>
       </div>     
     </div>
   )
