@@ -5,6 +5,8 @@ import { IoClose } from "react-icons/io5";
 import { BsCheckLg } from "react-icons/bs";
 import { FaRegEdit } from "react-icons/fa";
 import Placeholder from '../placeholder/Placeholder';
+import NewTaskDiv from '../newTaskDiv/NewTaskDiv';
+import InputArea from '../inputArea/InputArea';
 
 
 
@@ -18,49 +20,12 @@ const TodoList = () => {
  
 
    
-  function selectHandler(selectValue) {
-    if (selectValue === 'completed') {
-      showCompletedTasks()
-    } else if (selectValue === 'uncompleted') {
-      showUncompletedTasks()
-    } else {
-      showAllTasks()
-    }  
-  }
+  
 
-  function showCompletedTasks() {
-    MyApiService.getCompleted()
-    .then(response => {
-      setData(response.data)
-    })
-    .catch(error => console.log(error))
-  }
+ 
 
-  function showUncompletedTasks() {
-    MyApiService.getUncompleted()
-    .then(response => {
-      setData(response.data)
-    })
-    .catch(error => console.log(error))
-  }
-
-  function showAllTasks() {
-    MyApiService.todoArray() 
-    .then(response => {
-      setData(response.data)
-    })
-    .catch(error => console.log(error))
-  }
+  
    
-    function updateNewTask(id, newTask) {
-      MyApiService.updateTask(id, newTask)
-      .then(response => {
-        setData(response.data)
-        setNewTask('')
-        
-      })
-   
-   }
    
 
     function updateEditMode(id, todo) {
@@ -74,15 +39,7 @@ const TodoList = () => {
       .catch(error =>{console.log(error)})
     }
 
-    function addTask() {
-      MyApiService.createTask(task, name)
-      .then(response => {
-        setData(response.data)
-      })
-      .catch(error => console.log(error))
-      setTask('')
-      setName('')
-    }
+    
 
     function deleteTask(id) {
       console.log(id)
@@ -119,9 +76,7 @@ const TodoList = () => {
         })
     }
 
-    function clearField() {
-      setNewTask('')
-    }
+  
 
    
 
@@ -129,21 +84,8 @@ const TodoList = () => {
   return (
     <div className="todo-container">
            <h1 className="headline" data-testid="headline">Todo List</h1>
-      <div className="input-wrapper">
-            <p className="todo-label">To do:</p>
-            <input data-testid="textinput" className='input-field' value={task} type="text" onChange={e => setTask(e.target.value)} />
-            <p className="todo-name">Name:</p>
-            <input data-testid="nameinput" className='input-field' value={name} type="text" onChange={e => setName(e.target.value)} />
-           
-            <button className="add-btn" onClick={addTask} data-testid="btn">Add</button>
-
-            <select className="select" onChange={(e) =>{ selectHandler(e.target.value)}}>
-              <option value="all" data-testid="all">All</option>
-              <option value="uncompleted">Uncompleted</option>
-              <option value="completed">Completed</option>
-            </select>
-
-      </div>
+    
+     <InputArea  setData={setData}/>
       
       <div className='card'>
         {data.length > 0 ? <p>{data.map(obj => (
@@ -167,12 +109,7 @@ const TodoList = () => {
                 </div>
           </button>
 
-          {obj.editMode === true ? <div className="newTask-div">
-              <h2 className='newTask-headline'>Edit To do task:</h2>
-              <input className='newTask-input' type="text" value={newTask} onChange={(e)=>setNewTask(e.target.value)} />
-              {newTask.length > 0 && <button className='clear-btn' onClick={clearField}><IoClose className='clear'/></button>}
-              <button className='done-button' onClick={()=>updateNewTask(obj.id, newTask)}>Done</button>
-              </div>: '' }
+          {obj.editMode === true ? <NewTaskDiv id={obj.id} data={data} setData={setData} />: '' }
               
           </div>
         ))}</p> : <Placeholder/>}
