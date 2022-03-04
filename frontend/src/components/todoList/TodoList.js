@@ -1,8 +1,6 @@
 import {useState} from 'react'
-import MyApiService from '../../api/services/MyApiService'
 import './todoList.css'
 import Placeholder from '../placeholder/Placeholder';
-import NewTaskDiv from '../newTaskDiv/NewTaskDiv';
 import InputArea from '../inputArea/InputArea';
 import Card from '../card/Card';
 
@@ -14,29 +12,27 @@ const TodoList = () => {
     const [data, setData] = useState([])
     
 
-
-    
-
-
-    
-
-
-    
-
-
-
   return (
     <div className="todo-container">
           <h1 className="headline" data-testid="headline">Todo List</h1>
     
-          <InputArea  setData={setData}/>
+          <InputArea setData={setData}/>
       
           <div className='card'>
                 {data.length > 0 ? <p>{data.map(obj => (
-                    <Card key={obj.id} id={obj.id} done={obj.done} task={obj.task} setData={setData} name={obj.name} editMode={obj.editMode}/>
+                    <Card 
+                    key={obj.id} 
+                    id={obj.id} 
+                    done={obj.done} 
+                    task={obj.task} 
+                    setData={setData} 
+                    name={obj.name} 
+                    editMode={obj.editMode}
+                    />
+                
                 ))}</p> : <Placeholder/>}
+          </div>    
 
-          </div>     
     </div>
   )
 }
