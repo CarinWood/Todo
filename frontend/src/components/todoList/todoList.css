@@ -65,13 +65,13 @@
 }
 
 .card {
-    border: 1px solid red;
     width: 800px;
-    height: 500px;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    padding-bottom: 30px;
 }
 
 .task {
@@ -224,7 +224,7 @@
     height: 300px;
     position: absolute;
     top: 25%;
-    right: 35%;
+    right: 15%;
     background-color: var(--secondary-color);
     border-radius: 8px;
     display: flex;
@@ -238,14 +238,28 @@
     animation-name: taskDiv;
 }
 
-.placeholder-text {
+.placeholder-div {
     border: 1px solid white;
+    font-family: monospace;
+    opacity: 0.8;
+    font-size: 28px;
+    position: relative;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 80px;
     align-items: center;
     color: var(--text-color);
     width: 700px;
-    height: 400px;
+    height: 500px;
+}
+
+.credits {
+    position: absolute;
+    font-family: monospace;
+    font-size: 18px;
+    opacity: 0.8;
+    bottom: 0;
 }
 
 @keyframes taskDiv {
