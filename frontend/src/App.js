@@ -7,13 +7,13 @@ function App() {
 
 
   return (
-    <>
+    <div clasName="app">
 
        <TodoList/>
        <Footer/>
 
   
-    </>
+    </div>
   );
 }
 

@@ -22,3 +22,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+.app {
+  position: relative;
+}

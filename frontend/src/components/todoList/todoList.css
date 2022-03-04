@@ -400,14 +400,18 @@
     }
 
     .edit-btn {
+        width: 30px;
+        height: 30px;
         position: absolute;
-        right: -1000%;
+        bottom: 5%;
+        right: 30%;
+        padding: 3px 5px;
     }
 
     .check, .redCheck {
         position: absolute;
         bottom: 5%;
-        right: 20%;
+        right: 16%;
         font-size: 25px;
     }
 
@@ -421,6 +425,7 @@
         width: 280px;
         justify-content: flex-start;
         margin-left: 0px;
+        margin-right: 0px;
         margin-top: 5px;
         font-size: 20px;
     }
@@ -431,6 +436,7 @@
         display: flex;
         justify-content: flex-start;
         margin-right: 0px;
+        margin-top: 0px;
 
     }
 
