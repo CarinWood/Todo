@@ -440,7 +440,15 @@
 
     }
 
- 
+    .newTask-div {
+        width: 340px;
+        height: 300px;
+        position: absolute;
+        top: 25%;
+        right: -7%;
+        z-index: 5;
+    }
+
 
        
 }
