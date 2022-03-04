@@ -2,8 +2,8 @@ import {useState} from 'react'
 import { IoClose } from "react-icons/io5";
 import MyApiService from '../../api/services/MyApiService';
 
-const NewTaskDiv = ({id, data, setData}) => {
-    const [newTask, setNewTask] = useState('')
+const NewTaskDiv = ({id, setData, tasktext}) => {
+    const [newTask, setNewTask] = useState(tasktext)
     
 
     function clearField() {
@@ -28,7 +28,8 @@ const NewTaskDiv = ({id, data, setData}) => {
             <h2 className='newTask-headline'>Edit To do task:</h2>
                 <input 
                 className='newTask-input' 
-                type="text" value={newTask} 
+                type="text" 
+                value={newTask} 
                 onChange={(e)=>setNewTask(e.target.value)} />
                         {newTask.length > 0 && 
                         <button 

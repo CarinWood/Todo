@@ -1,9 +1,9 @@
 import {useState} from 'react'
 import MyApiService from '../../api/services/MyApiService'
 
-const InputArea = ({setData}) => {
+const InputArea = ({setData, }) => {
     const [name, setName] = useState('')
-    const [task, setTask] = useState('')
+    const [task, setTask] = useState()
 
     function addTask() {
         MyApiService.createTask(task, name)

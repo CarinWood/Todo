@@ -15,68 +15,43 @@ const TodoList = () => {
 
     const [data, setData] = useState([])
     const [newTask, setNewTask] = useState('')
- 
 
-   
-  
-
- 
-
-  
-   
-   
 
     function updateEditMode(id, todo) {
       setNewTask(todo)
       MyApiService.updateEditMode(id)
       .then(response => {
-        console.log(response.data)
         setData(response.data)
-      
       })
       .catch(error =>{console.log(error)})
     }
 
-    
 
     function deleteTask(id) {
-      console.log(id)
        MyApiService.deleteTask(id)
       .then(response => {
-        setData(response.data)
-      
-         console.log(response.data)
-         
-       
+        setData(response.data) 
       })
       .catch(error => console.log(error))
-    
     }
 
 
     function updateDone(id) {
-        console.log(id)
         MyApiService.updateTaskDone(id)
         .then(response => {
-          console.log(response.data)
           setData(response.data)
-
-          
         })
+        .catch(error => console.log(error))
     }
 
     function updateDoneAgain(id) {
-        console.log(id)
         MyApiService.updateTaskDoneAgain(id)
         .then(response => {
-          console.log(response.data)
           setData(response.data)
         })
+        .catch(error => console.log(error))
     }
 
-  
-
-   
 
 
   return (
@@ -107,7 +82,7 @@ const TodoList = () => {
                 </div>
           </button>
 
-          {obj.editMode === true ? <NewTaskDiv id={obj.id} data={data} setData={setData} />: '' }
+          {obj.editMode === true ? <NewTaskDiv id={obj.id} setData={setData} tasktext={obj.task} />: '' }
               
           </div>
         ))}</p> : <Placeholder/>}
