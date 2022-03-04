@@ -238,29 +238,7 @@
     animation-name: taskDiv;
 }
 
-.placeholder-div {
-    border: 1px solid white;
-    font-family: monospace;
-    opacity: 0.8;
-    font-size: 28px;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding-top: 80px;
-    align-items: center;
-    color: var(--text-color);
-    width: 700px;
-    height: 500px;
-}
 
-.credits {
-    position: absolute;
-    font-family: monospace;
-    font-size: 18px;
-    opacity: 0.8;
-    bottom: 0;
-}
 
 @keyframes taskDiv {
     0% {

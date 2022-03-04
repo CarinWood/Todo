@@ -4,6 +4,7 @@ import './todoList.css'
 import { IoClose } from "react-icons/io5";
 import { BsCheckLg } from "react-icons/bs";
 import { FaRegEdit } from "react-icons/fa";
+import Placeholder from '../placeholder/Placeholder';
 
 
 
@@ -174,10 +175,7 @@ const TodoList = () => {
               </div>: '' }
               
           </div>
-        ))}</p> : <div className='placeholder-div'>
-                      You have nothing to do :-)
-                      <p className='credits'>Created and Build by Carin Wood</p>
-                  </div>}
+        ))}</p> : <Placeholder/>}
 
       </div>     
 
