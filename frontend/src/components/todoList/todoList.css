@@ -358,7 +358,15 @@
   
 }
 
-@media screen and (max-width: 390px) {
+@media screen and (max-width: 429px) {
+    .todo-container {
+        overflow-x: hidden;
+    }
+
+    .headline {
+        margin-bottom: 12px;
+    }
+
     .select {
         position:inherit
     }
@@ -370,7 +378,11 @@
 
     .todo-label, .todo-name {
         align-self: flex-start;
-        margin-bottom: 4px;
+        margin-bottom: 10px;
+    }
+
+    .input-field {
+        font-size: 22px;
     }
 
     .todo-name {
@@ -379,7 +391,7 @@
     }
 
     .add-btn {
-        margin-top: 30px;
+        margin-top: 36px;
         width: 150px;
         margin-bottom: 0px;
         font-size: 28px;
