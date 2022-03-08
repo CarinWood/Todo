@@ -1,14 +1,18 @@
 import TodoController from "../controller/TodoController.js";
 
 const routes = (app) => {
-    //Get todo array
-app.get('/todo', TodoController.getTodos)
-
-//DELETE TASK
-app.delete("/todo/:id", TodoController.deleteTodo)
 
 //CREATE
 app.post('/todo/add/:task/:name', TodoController.createTodo)
+
+//GET ARRAY
+app.get('/todo', TodoController.getTodos)
+
+//GET ALL COMPLETED TASKS
+app.get('/todo/completed', TodoController.completedTasks)
+
+//GET ALL UNCOMPLETED TASKS
+app.get('/todo/uncompleted', TodoController.uncompletedTasks)
 
 //UPDATE DONE
 app.put('/todo/:id', TodoController.updateDone)
@@ -22,11 +26,9 @@ app.put('/todo/edit/:id', TodoController.updateEdit)
 //UPDATE TASK
 app.put('/todo/update/:id/:newText', TodoController.updateTask)
 
-//Get all completed taks
-app.get('/todo/completed', TodoController.completedTasks)
+//DELETE TASK
+app.delete("/todo/:id", TodoController.deleteTodo)
 
-//Get all uncompleted tasks:
-app.get('/todo/uncompleted', TodoController.uncompletedTasks)
 }
 
 export default {
