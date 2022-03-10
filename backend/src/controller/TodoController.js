@@ -1,174 +1,145 @@
-import todoArray from '../data/todoArray.js'
+import todoArray from "../data/todoArray.js";
 
-let counter = 0
+let counter = 0;
 const getId = () => {
-        return counter ++
-}
+  return counter++;
+};
 
 const createTodo = (req, res) => {
-    const task = req.params.task
-    const name = req.params.name
-    
-    
-    let newTask = {
-          task: task,
-          name: name,
-          done: false,
-          editMode: false,
-          id: getId(),
-    }
+  const task = req.params.task;
+  const name = req.params.name;
 
-    todoArray.push(newTask)
-    res.status(201).send(todoArray)
-}
+  let newTask = {
+    task: task,
+    name: name,
+    done: false,
+    editMode: false,
+    id: getId(),
+  };
+
+  todoArray.push(newTask);
+  res.status(201).send(todoArray);
+};
 
 const getTodos = (req, res) => {
-    res.status(200).send(todoArray)
-}
-
-
-
+  res.status(200).send(todoArray);
+};
 
 const findTaskById = (id) => {
-    let object =  `Could not find object with id: ${id} `
-      todoArray.forEach(item => {
-          if (id === item.id) {
-              item.done = !false
-              object = item
-          
-              return 
-                
-          } 
-          
-      })
+  todoArray.forEach((item) => {
+    if (id === item.id) {
+      item.done = true;
+    }
+  });
 
-      return todoArray
-  }
-
+  return todoArray;
+};
 
 const updateDone = (req, res) => {
-    const id = Number(req.params.id)
-    const responseFromDB = findTaskById(id)
-    res.send(responseFromDB)
-}
-
+  const id = Number(req.params.id);
+  const responseFromDB = findTaskById(id);
+  res.status(200).send(responseFromDB);
+};
 
 const updateDoneAgain = (id) => {
-    let object =  `Could not find object with id: ${id}`
-    todoArray.forEach(item => {
-        if(id === item.id) {
-            item.done = false
-            object = item
-            return
-        }
-    });
-        return todoArray
-  }
-
+  todoArray.forEach((item) => {
+    if (id === item.id) {
+      item.done = false;
+    }
+  });
+  return todoArray;
+};
 
 const updateAgain = (req, res) => {
-    const id = Number(req.params.id)
-    const responseFromDB = updateDoneAgain(id)
-    res.send(responseFromDB)
-}
+  const id = Number(req.params.id);
+  const responseFromDB = updateDoneAgain(id);
+  res.status(200).send(responseFromDB);
+};
 
 const updateEditMode = (id) => {
-    let object =  `Could not find object with id: ${id}`
-        todoArray.forEach(item => {
-            if (id === item.id) {
-                item.editMode = true
-                object = item
-                return
-            }
-        })
-            return todoArray
-  }
+  todoArray.forEach((item) => {
+    if (id === item.id) {
+      item.editMode = true;
+    }
+  });
+  return todoArray;
+};
 
 const updateEdit = (req, res) => {
-    const id = Number(req.params.id)
-    const responseFromDB = updateEditMode(id)
-    res.status(201).send(responseFromDB)
-}
+  const id = Number(req.params.id);
+  const responseFromDB = updateEditMode(id);
+  res.status(201).send(responseFromDB);
+};
 
 const deleteTask = (id) => {
-   
-    for (let i = 0; i < todoArray.length; i++) {
-        if (id === todoArray[i].id) {
-            todoArray.splice(i, 1);
-            return todoArray; 
-        }
-     
- 
-      
+  for (let i = 0; i < todoArray.length; i++) {
+    if (id === todoArray[i].id) {
+      todoArray.splice(i, 1);
+      return todoArray;
     }
-    return 'error'
-}
-
+  }
+  return "error";
+};
 
 const deleteTodo = (req, res) => {
-    const id = Number(req.params.id);
-    const responsefromDB = deleteTask(id);
-    res.send(responsefromDB);
-} 
+  const id = Number(req.params.id);
+  const responsefromDB = deleteTask(id);
+  res.status(200).send(responsefromDB);
+};
 
 const updateNewTask = (id, newText) => {
-    let object =  `Could not find object with id: ${id}`
-      todoArray.forEach(item => {
-          if (id === item.id) {
-              item.task = newText
-              item.editMode = false
-              object = item
-                return 
-          }
-      })
-   
-     
-     return todoArray
-  }
+  todoArray.forEach((item) => {
+    if (id === item.id) {
+      item.task = newText;
+      item.editMode = false;
+    }
+  });
 
+  return todoArray;
+};
 
 const updateTask = (req, res) => {
-    const id = Number(req.params.id)
-    const newText = req.params.newText
-    const responseFromDB = updateNewTask(id, newText)
-   res.status(201).send(responseFromDB)
-}
+  const id = Number(req.params.id);
+  const newText = req.params.newText;
+  const responseFromDB = updateNewTask(id, newText);
+  res.status(201).send(responseFromDB);
+};
 
 const getCompletedTasks = () => {
-    const completedTasks = []
-        todoArray.forEach(item => {
-            if(item.done === true)
-            completedTasks.push(item)
-        })
-        return completedTasks
-  }
+  const completedTasksArray = [];
+  todoArray.forEach((item) => {
+    if (item.done === true) completedTasksArray.push(item);
+  });
+  return completedTasksArray;
+};
 
 const completedTasks = (req, res) => {
-    const responseFromDB = getCompletedTasks()
-    res.status(200).send(responseFromDB)
-}
+  const responseFromDB = getCompletedTasks();
+  res.status(200).send(responseFromDB);
+};
 
 const getUncompletedTasks = () => {
-    const uncompletedTasks = []
-    todoArray.forEach(item => {
-        if(item.done === false)
-        uncompletedTasks.push(item)
-    })
-    return uncompletedTasks
-  }
- 
+  const uncompletedTasksArray = [];
+  todoArray.forEach((item) => {
+    if (item.done === false) uncompletedTasksArray.push(item);
+  });
+  return uncompletedTasksArray;
+};
+
 const uncompletedTasks = (req, res) => {
-    const responseFromDB = getUncompletedTasks()
-    res.status(200).send(responseFromDB)
-}
+  const responseFromDB = getUncompletedTasks();
+  res.status(200).send(responseFromDB);
+};
+
+
 export default {
-    createTodo,
-    getTodos,
-    updateDone,
-    updateAgain,
-    updateEdit,
-    deleteTodo,
-    updateTask,
-    completedTasks,
-    uncompletedTasks
-}
+  createTodo,
+  getTodos,
+  updateDone,
+  updateAgain,
+  updateEdit,
+  deleteTodo,
+  updateTask,
+  completedTasks,
+  uncompletedTasks,
+};

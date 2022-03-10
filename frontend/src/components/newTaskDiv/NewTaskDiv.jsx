@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import { IoClose } from "react-icons/io5";
 import MyApiService from '../../api/services/MyApiService';
+import '../todoList/todoList.css'
 
 const NewTaskDiv = ({id, setData, tasktext}) => {
     const [newTask, setNewTask] = useState(tasktext)

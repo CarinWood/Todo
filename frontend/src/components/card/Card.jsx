@@ -4,6 +4,7 @@ import { BsCheckLg } from "react-icons/bs";
 import { FaRegEdit } from "react-icons/fa";
 import NewTaskDiv from '../newTaskDiv/NewTaskDiv';
 import MyApiService from '../../api/services/MyApiService';
+import '../todoList/todoList.css'
 
 const Card = ({id, done, task, setData, name, editMode}) => {
     const [newTask, setNewTask] = useState('')
